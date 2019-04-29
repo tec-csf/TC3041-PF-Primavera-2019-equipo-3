@@ -1,11 +1,11 @@
 # TC3041 Proyecto  Final Primavera 2019
 
-#*[Poner aquí el Título del Proyecto]*
+#*Aleph*
 ---
 
 ##### Integrantes:
-1. *[Poner aquí Nombre y Apellidos del integrante 1]*
-2. *[Poner aquí Nombre y Apellidos del integrante 2]*
+1. *Mauricio Peón García*
+2. *Romeo Varela Nagore*
 
 
 ---
