@@ -1,14 +1,14 @@
 from pymongo import MongoClient
 from bson import ObjectId
 from flask import request, url_for, jsonify
-import config
+from backend import config
 
-class Notes(object):
+class Libros(object):
 
     def __init__(self):
         client = MongoClient(config.MONGO_URI)
-        db = client.tasks
-        self.collection = db.tasks
+        db = client.libros
+        self.collection = db.libros
 
 
     def find(self):
@@ -17,33 +17,33 @@ class Notes(object):
         """
         cursor = self.collection.find()
 
-        notes = []
+        libros = []
 
-        for note in cursor:
+        for libro in cursor:
             # Se adicionó para poder manejar ObjectID
-            note['_id'] = str(note['_id']) 
-            notes.append(note)
+            libro['_id'] = str(libro['_id']) 
+            libros.append(libro)
 
-        return notes
+        return libros
 
     def findOne(self, id):
         """
         Obtener la nota con id
         """
-        note = self.collection.find_one({'_id': ObjectId(id)})
+        libro = self.collection.find_one({'_id': ObjectId(id)})
 
         # Se adicionó para poder manejar ObjectID
-        if note is not None:
-            note['_id'] = str(note['_id'])
+        if libro is not None:
+            libro['_id'] = str(libro['_id'])
 
-        return note
+        return libro
 
 
-    def create(self, note):
+    def create(self, libro):
         """
         Insertar una nota nueva
         """
-        result = self.collection.insert_one(note)
+        result = self.collection.insert_one(libro)
 
         return result
 
@@ -55,10 +55,10 @@ class Notes(object):
 
         return result
 
-    def update(self, id, note):
+    def update(self, id, libro):
         """
         Actualizar una nota
         """
-        result = self.collection.replace_one({'_id': ObjectId(id)}, note )
+        result = self.collection.replace_one({'_id': ObjectId(id)}, libro )
 
         return result

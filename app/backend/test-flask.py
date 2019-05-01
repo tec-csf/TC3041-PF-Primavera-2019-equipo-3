@@ -1,4 +1,4 @@
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,make_response,redirect,url_for
 from flask_api import FlaskAPI, status, exceptions
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -10,16 +10,20 @@ from flask import render_template
 from flask_bootstrap import Bootstrap
 from models import sessions
 from datetime import datetime
-from models import notes
+from models import libros
 import json
 import dns
 import os
+import jinja2
+env = jinja2.Environment()
+env.globals.update(zip=zip)
 SECRET_KEY = os.urandom(32)
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 Bootstrap(app)
+app.jinja_env.filters['zip'] = zip
 
 class LoginForm(Form):
     username = StringField('username', validators=[InputRequired(),Email(message='Invalid email.')])
@@ -33,25 +37,7 @@ def index():
         return 'Form Successfully!'
     return render_template('hello.html',form=form)
 
-@app.route("/",methods=['GET'])
-def get_all_tasks():
-    print("hola")
-    uri = "mongodb+srv://maupeon:admin@cluster0-1q1k1.mongodb.net/test?retryWrites=true"
 
-    client = MongoClient(uri)
-    db = client.tasks
-    collection = db.tasks
-
-    result = []
-
-    for field in collection.find():
-        result.append({'_id':str(field['_id']),'titulo':field['titulo'],'libro':field['libro']})
-
-    return jsonify(result)
-
-@app.route("/frontend",methods=['GET','POST'])
-def show_front():
-    return render_template('hello.html')
 
 @app.route("/redis", methods=['GET', 'POST'])
 def listas():
@@ -59,7 +45,7 @@ def listas():
     print("debugeo",datetime.now())
     redis.add(str(datetime.now()))
 
-    mongodb = notes.Notes()
+    mongodb = libros.Libros()
 
 
     #if request.method == 'GET':
@@ -80,21 +66,31 @@ def active_sessions():
 
     return jsonify({"Sesiones activas: ": dbsize})
 
-@app.route('/libros', methods=['GET','POST'])
-def show_libros():
-    mongodb = notes.Notes()
-    libros = mongodb.find()
-    #print(type(libros))
+
+
+@app.route('/menu', methods=['GET','POST'])
+def menu():
+    if request.method == 'POST':
+        language = request.form.get('nm')
+        framework = request.form.get('framework')
+        
+    mongodb = libros.Libros()
+    libs = mongodb.find()
     
-    #print(libros[0]['libro'])
     libros_array = []
-    for i in range(len(libros)):
-        libros_array.append(libros[i]['libro'])
+    titulos_array = []
+    images_array =[]
+    for i in range(len(libs)):
+        libros_array.append(libs[i]['Libro'])
+        titulos_array.append(libs[i]['Titulo'])
+        images_array.append(libs[i]['Imagen'])
     
-    print(libros_array)
-
-    return render_template('libros.html',libro=libros_array)
-
+    #print(libros_array)
+    browser = request.form.get("nm")
+    print("browser",browser)
+    #print(images_array)
+   
+    return render_template('index.html',libros=libros_array,titulos=titulos_array,imagenes=images_array)
 
 
 

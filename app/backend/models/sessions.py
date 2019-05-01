@@ -1,5 +1,5 @@
 import redis
-import config
+from backend import config
 
 class Sessions(object):
 
