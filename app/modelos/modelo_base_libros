@@ -1,21 +1,22 @@
  ///Mongo
  
  //Libros
-   [
-    '{{repeat(30)}}',
+[
+    '{{repeat(50)}}',
     {
      
-      Autor:'{{firstName()}}',
+      Autor:'{{random("Jorge Luis Borges", "Juan Rulfo", "Gabriel García Márquez","Julio Cortázar","Isabel Allende")}}',
       Titulo:'{{lorem(random(0,5), "words")}}',
-      Genero: '{{random("Ciencia Ficción", "Fantasía", "Historia")}}',
+      Genero: '{{random("Ciencia Ficción", "Fantasía", "Historia","Poesía")}}',
       Fecha_de_Publicacion:'{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
       Descripcion:'{{lorem(1, "paragraph")}}',
       numPaginas:'{{integer(120, 1250)}}',
-      Editorial:'{{lorem(1, "words")}}',
+      Editorial:'{{random("Ediciones Arlequín", "Era", "Grijalbo")}}',
       Pais:"{{country()}}",
-      Imagen:'{{random("http://listas.eleconomista.es/system/items/000/106/770/medium/ficciones.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/769/medium/el-aleph.jpg?1518398808)","http://listas.eleconomista.es/system/items/000/106/772/medium/libro_arena.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/778/medium/historia-eternidad.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/776/medium/para-las-seis-cuerdas.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/777/medium/prologos.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/775/medium/el-idioma-argentinos.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/771/medium/inquisiciones.jpeg?1518398808","http://listas.eleconomista.es/system/items/000/106/773/medium/muerte-brujula.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/774/medium/el-informe-brodie.jpg?1518398808")}}'
-      Libro:
+      Imagen:'{{random("http://listas.eleconomista.es/system/items/000/106/770/medium/ficciones.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/769/medium/el-aleph.jpg?1518398808)","http://listas.eleconomista.es/system/items/000/106/772/medium/libro_arena.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/778/medium/historia-eternidad.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/776/medium/para-las-seis-cuerdas.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/777/medium/prologos.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/775/medium/el-idioma-argentinos.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/771/medium/inquisiciones.jpeg?1518398808","http://listas.eleconomista.es/system/items/000/106/773/medium/muerte-brujula.jpg?1518398808","http://listas.eleconomista.es/system/items/000/106/774/medium/el-informe-brodie.jpg?1518398808")}}',
+      Libro:'{{random("http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf","http://planlectura.educ.ar/wp-content/uploads/2016/01/Casta-tomada-en-Bestiario-Julio-Cort%C3%A1zar.pdf","http://biblio3.url.edu.gt/Libros/12_cuentos.pdf","https://www.taller-palabras.com/Datos/Cuentos_Bibliotec/ebooks/Isabel%20Allende%20-%20Los%20cuentos%20de%20Eva%20Luna.pdf")}}'
     }
+  
   
   ]
 

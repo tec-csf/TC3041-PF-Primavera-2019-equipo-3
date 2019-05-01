@@ -62,3 +62,27 @@ class Libros(object):
         result = self.collection.replace_one({'_id': ObjectId(id)}, libro )
 
         return result
+
+    def findByGenre(self):
+        cursor = self.collection.find()
+        cursor = cursor.sort(("Genero"))
+        libros = []
+
+        for libro in cursor:
+            # Se adicionó para poder manejar ObjectID
+            libro['_id'] = str(libro['_id']) 
+            libros.append(libro)
+
+        return libros
+
+    def findByAuthor(self):
+        cursor = self.collection.find()
+        cursor = cursor.sort(("Autor"))
+        libros = []
+
+        for libro in cursor:
+            # Se adicionó para poder manejar ObjectID
+            libro['_id'] = str(libro['_id']) 
+            libros.append(libro)
+
+        return libros

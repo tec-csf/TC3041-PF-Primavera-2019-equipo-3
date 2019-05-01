@@ -20,7 +20,17 @@ class API(object):
         mongodb = libros.Libros()
         libs = mongodb.find()  
 
-        
+        return libs
+
+    def get_all_tasks_by_genre(self):
+        mongodb = libros.Libros()
+        libs = mongodb.findByGenre()  
+
+        return libs
+
+    def get_all_tasks_by_author(self):
+        mongodb = libros.Libros()
+        libs = mongodb.findByAuthor()  
 
         return libs
 

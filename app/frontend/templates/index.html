@@ -51,13 +51,13 @@ http://www.tooplate.com/view/2086-multi-color
                 <div class="collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
                     <ul class="nav navbar-nav">
                         <li class="nav-item active selected">
-                            <a class="nav-link" href="#0" data-no="1">Book Store<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#0" data-no="1">Librería<span class="sr-only">(current)</span></a>
                         </li>                                
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="4">My Books</a>
+                            <a class="nav-link" href="#0" data-no="4">Mis Libros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#0" data-no="5">Profile</a>
+                            <a class="nav-link" href="#0" data-no="5">Perfil</a>
                         </li>
                         
                     </ul>
@@ -77,27 +77,40 @@ http://www.tooplate.com/view/2086-multi-color
                         <div class="tm-img-gallery gallery-one">
                         <!-- Gallery One pop up connected with JS code below -->                                    
                             <div class="tm-img-gallery-info-container">                                    
-                                <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Book Store</span></h2>
-                                <p class="tm-text">The best books around the world.</p>
+                                <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Librería</span></h2>
+                                <p class="tm-text">Los mejores libros del mundo.</p>
                             </div>
                             <div>
                                 <form method="POST">
-                                        <input list="browsers" name ="nm" >
+                                    <span>Filter by:</span>
+                                        <input list="filtrar" name ="nm" >
 
-                                        <datalist id="browsers">
-                                          <option value="Internet Explorer">
-                                          <option value="Firefox">
-                                          <option value="Google Chrome">
-                                          <option value="Opera">
-                                          <option value="Safari">
+                                        <datalist id="filtrar">
+                                          <option value="Género">
+                                          <option value="Autor">
                                         </datalist>
                                         <input type="submit">
                                     
                                 </form>
-                            </div>
-                            <h1>Genero</h1>
-                            
-                            {%for libro,titulo,imagen in libros|zip(titulos,imagenes)%}
+                            </div>  
+                             
+                            {%if filtro == 'Género'%}  
+                            {%set gen = generos[0]%}  
+                            <div>
+                                <h1>{{gen}}</h1> 
+                            </div>   
+                            {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
+                                zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                               
+                                {%set gent = genero%}
+
+                                {%if gen|string() != gent|string()%}  
+                                    {%set gen = gent%} 
+                                    <div>
+                                        <h1>{{gen,gent}}</h1> 
+                                    </div>
+                                
+                                {%endif%}
                             <div class="grid-item " >
                                 <figure class="effect-bubba">
                                         <div style="max-height: 410px;width: auto">
@@ -106,17 +119,57 @@ http://www.tooplate.com/view/2086-multi-color
                                         
                                         <figcaption>
                                             <p class="tm-figure-description">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Autor : {{autor}}<br>
+                                                Género : {{genero}}<br>
+                                                Fecha de publicación :<br> {{fecha}}<br>
+                                                Número de páginas : {{num_pagina}}<br>
+                                                Editorial : {{editorial}}<br>
+                                                Pais : {{pais}}<br>
                                             </p>  
                                         </figcaption>    
                                                
                                     </figure>
-                                    
-                                        <button type="button" onclick="agap({{libro}}))"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>
-                                    
+                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
                             </div>
                             
                             {%endfor%}
+                            {%endif%}
+
+
+                            {%if filtro == 'Autor'%}  
+                            {%set aut = autores[0]%} 
+                            {%set temporal = aut%}    
+                            <h1>{{aut}}</h1>           
+                            {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
+                                zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                                {%set temporal = autor%}
+                                {%if aut != temporal%}  
+                                    {%set aut = temporal%} 
+                                        <h1>{{aut}}</h1>
+                                {%endif%}
+                            <div class="grid-item " >
+                                <figure class="effect-bubba">
+                                        <div style="max-height: 410px;width: auto">
+                                            <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
+                                        </div>
+                                        
+                                        <figcaption>
+                                            <p class="tm-figure-description">
+                                                Autor : {{autor}}<br>
+                                                Género : {{genero}}<br>
+                                                Fecha de publicación :<br> {{fecha}}<br>
+                                                Número de páginas : {{num_pagina}}<br>
+                                                Editorial : {{editorial}}<br>
+                                                Pais : {{pais}}<br>
+                                            </p>  
+                                        </figcaption>    
+                                               
+                                    </figure>
+                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                            </div>
+                            
+                            {%endfor%}
+                            {%endif%}
                         </div>                                 
                     </div>
                 </div>                                                    
