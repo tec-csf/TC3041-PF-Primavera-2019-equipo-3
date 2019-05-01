@@ -23,23 +23,25 @@
 //Autores
 {
     "_id":"string",
-    "Nombre":
-    "Apellido":
-    Fecha_Nacimiento:
-    Nacionalidad:
-    Libro_id_arreglo:
+    "Nombre":"string",
+    "Apellido":"string",
+    "Fecha_Nacimiento":"date",
+    "Nacionalidad":"string",
+    "Libro_id_arreglo":[]
 }
 
 //Editorial
 {
     "_id":"string",
-    "Nombre":
-    "arreglo de libros"
+    "Nombre":"string",
+    "libros":["string"]
 }
 
 //Usuario
 {
-    _id:
-    usuario:
-    arreglo de libros:
+    "_id":"string",
+    "Nombre":"string",
+    "Apellido":"string",
+    "Correo":"string",
+    "libros":["string"]
 }
