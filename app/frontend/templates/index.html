@@ -95,44 +95,71 @@ http://www.tooplate.com/view/2086-multi-color
                                                 <option value="{{autor}}">{{autor}}</option>
                                                 {%endfor%}
                                             </select>
+                                            <button type="submit" name="todos">Todos</button>
+
                                         </form>
                                     </div>
                                     {%set gen = filtro%}
-
-                                    <div>
-                                        <h1>{{gen}}</h1>
-                                    </div>
-                                    {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                        zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
-                                        {%if bandera == '1'%}
-                                            {%set eleccion = genero%}
-                                            
-                                        {%elif bandera == '2'%} 
-                                            {%set eleccion = autor%}
-                                        {%endif%}
-                                        {%if gen == eleccion%}
-                                        <div class="grid-item " >
-                                            <figure class="effect-bubba">
-                                                    <div style="max-height: 410px;width: auto">
-                                                        <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
-                                                    </div>
-                                                    
-                                                    <figcaption>
-                                                        <p class="tm-figure-description">
-                                                            Autor : {{autor}}<br>
-                                                            Género : {{genero}}<br>
-                                                            Fecha de publicación :<br> {{fecha}}<br>
-                                                            Número de páginas : {{num_pagina}}<br>
-                                                            Editorial : {{editorial}}<br>
-                                                            Pais : {{pais}}<br>
-                                                        </p>  
-                                                    </figcaption>    
-                                                        
-                                                </figure>
-                                                <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                    {%if bandera != '0'%}
+                                        <div>
+                                            <h1>{{gen}}</h1>
                                         </div>
-                                        {%endif%}
-                                    {%endfor%}
+                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
+                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                                            {%if bandera == '1'%}
+                                                {%set eleccion = genero%}
+                                                
+                                            {%elif bandera == '2'%} 
+                                                {%set eleccion = autor%}
+                                            {%endif%}
+                                            {%if gen == eleccion%}
+                                            <div class="grid-item " >
+                                                <figure class="effect-bubba">
+                                                        <div style="max-height: 410px;width: auto">
+                                                            <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
+                                                        </div>
+                                                        
+                                                        <figcaption>
+                                                            <p class="tm-figure-description">
+                                                                Autor : {{autor}}<br>
+                                                                Género : {{genero}}<br>
+                                                                Fecha de publicación :<br> {{fecha}}<br>
+                                                                Número de páginas : {{num_pagina}}<br>
+                                                                Editorial : {{editorial}}<br>
+                                                                Pais : {{pais}}<br>
+                                                            </p>  
+                                                        </figcaption>    
+                                                            
+                                                    </figure>
+                                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                            </div>
+                                            {%endif%}
+                                        {%endfor%}
+                                    {%else%}
+                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
+                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                                            <div class="grid-item " >
+                                                <figure class="effect-bubba">
+                                                        <div style="max-height: 410px;width: auto">
+                                                            <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
+                                                        </div>
+                                                        
+                                                        <figcaption>
+                                                            <p class="tm-figure-description">
+                                                                Autor : {{autor}}<br>
+                                                                Género : {{genero}}<br>
+                                                                Fecha de publicación :<br> {{fecha}}<br>
+                                                                Número de páginas : {{num_pagina}}<br>
+                                                                Editorial : {{editorial}}<br>
+                                                                Pais : {{pais}}<br>
+                                                            </p>  
+                                                        </figcaption>    
+                                                            
+                                                    </figure>
+                                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                            </div>
+                                        {%endfor%}
+                                    {%endif%}                                    
                                 </div>                                 
                             </div>
                         </div>                                                    
