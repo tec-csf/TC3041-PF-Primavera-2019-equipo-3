@@ -28,6 +28,11 @@ def root():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+    if request.method == 'POST':
+        x = request.form["x"]
+        y = request.form["y"]
+        
+        return redirect(url_for('registro', x=x, y=y))
     return render_template('login.html')
 
 @app.route('/registro', methods=['GET','POST'])
@@ -53,8 +58,6 @@ def menu():
     jsons = api.API()
     usuarios_array = jsons.get_all_users()
 
-    
-    
     filtro = request.form.get("filt")
     print("browser",filtro)
 
@@ -73,15 +76,7 @@ def menu():
         editorial_array.append(jsons[i]['Editorial'])
         pais_array.append(jsons[i]['Pais'])
     
-    generos_limpios = []
-    autores_limpios = []
-    for genero in genero_array:
-        if genero not in generos_limpios:
-            generos_limpios.append(genero)
-    for autor in autor_array:
-        if autor not in autores_limpios:
-            autores_limpios.append(autor)
-    print(autores_limpios)
+  
     
     #print(images_array)
    
@@ -89,8 +84,7 @@ def menu():
                             imagenes=imagenes_array, generos=genero_array,
                             fechas=fecha_de_publicacion_array,descripciones=descripcion_array,
                             num_paginas=num_paginas_array,editoriales = editorial_array,
-                            paises=pais_array,filtro = filtro,usuarios=usuarios_array,
-                            generoslimpios=generos_limpios,autoreslimpios=autores_limpios)
+                            paises=pais_array,filtro = filtro,usuarios=usuarios_array)
 
 
 

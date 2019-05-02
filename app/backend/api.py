@@ -35,9 +35,6 @@ class API(object):
         mongodb = libros.Libros()
 
 
-
-    
-
     def get_all_tasks(self):
         mongodb = libros.Libros()
         libs = mongodb.find()  
