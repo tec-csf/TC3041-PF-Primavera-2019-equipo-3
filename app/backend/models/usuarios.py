@@ -10,6 +10,11 @@ class Usuarios(object):
         db = client.libros
         self.collection = db.usuarios
 
+    def insert_user(self,user,name,lastName,email):
+
+        userJson = { "_id": user, "Nombre": name, "Apellido": lastName, "Correo": email, "libros":[]}
+        self.collection.insert_one(userJson)
+
 
     def find(self):
         """
@@ -28,7 +33,7 @@ class Usuarios(object):
 
     def findOne(self, id):
         """
-        Obtener la nota con id
+        Obtener un usuario
         """
         usuario = self.collection.find_one({'_id': ObjectId(id)})
 

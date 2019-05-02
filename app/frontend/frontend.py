@@ -28,32 +28,45 @@ def root():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+
+    a = api.API()
     if request.method == 'POST':
-        x = request.form["x"]
-        y = request.form["y"]
-        
-        return redirect(url_for('registro', x=x, y=y))
+        user = request.form.get('username')
+        print("agap",user)
+        password = request.form.get('password')
+        print("agap",password)
+
+        if(a.verify_password(user,password)):
+             print("correcto")
+        else:
+            print("incorrecto")
+
+
+    
     return render_template('login.html')
 
 @app.route('/registro', methods=['POST','GET'])
 def registro():
-    #passwd = request.form.get("username")
-    #print("agap",passwd)
+
     a = api.API()
     if request.method == 'POST':
 
-       
-        passwd = request.form.get("username")
-        print("agap",passwd)
         user = request.form.get('username')
+        print("agap",user)
         password = request.form.get('password')
+        print("agap",password)
         name = request.form.get('Name')
+        print("agap",name)
         lastName = request.form.get('Lastname')
+        print("agap",lastName)
         email = request.form.get('Email')
+        print("agap",email)
 
-      #if (password != None):
-        #print("paso")
-
+        if(len(user)>0 and len(password)>0 and len(name)>0 and len(lastName)>0 and len(email)>0):
+           a.insert_user(user,password,name,lastName,email)
+           print("lleno")
+        else:
+           print("no lleno") 
     
      
     return render_template('registro.html')

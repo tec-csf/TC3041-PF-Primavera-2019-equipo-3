@@ -15,7 +15,7 @@ class Sessions(object):
                 host= config.REDIS_HOST,
                 port=config.REDIS_PORT)
 
-    def hashed_pass(password):
+    def hashed_pass(self,password):
 
         hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 
@@ -23,7 +23,7 @@ class Sessions(object):
     
     def set_user(self,user,password):
 
-        self.instance.hset(user,"password",Sessions.hashed_pass(password))
+        self.instance.hset(user,"password",Sessions.hashed_pass(self,password))
 
 
     def get_user_password(self,user):
