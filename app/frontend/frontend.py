@@ -33,11 +33,11 @@ def login():
     if request.method == 'POST':
         user = request.form.get('username')
         print("agap",user)
-        password = request.form.get('password')
+        password = request.form.get('pass')
         print("agap",password)
 
         if(a.verify_password(user,password)):
-             print("correcto")
+             return redirect(url_for('menu'))
         else:
             print("incorrecto")
 

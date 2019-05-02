@@ -26,7 +26,11 @@ class API(object):
         redisPassword = red.get_user_password(user)
         
         if(redisPassword != None):
-            if redisPassword == hashedPassword:
+            print("Romel")
+            
+
+            if redisPassword.decode() == hashedPassword:
+              print(redisPassword.decode(),hashedPassword)
               return True
             return False  
         return False

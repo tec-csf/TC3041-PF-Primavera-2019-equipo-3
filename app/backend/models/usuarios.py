@@ -60,22 +60,12 @@ class Usuarios(object):
 
         return result
 
-    def update(self, id, usuario):
-        """
-        Actualizar una nota
-        """
-        result = self.collection.replace_one({'_id': ObjectId(id)}, usuario )
-
-        return result
 
     def add_book(self, id, libro):
      
-        result = self.collection.replace_one({'_id': ObjectId(id)}, usuario )
+        result = self.collection.update({'_id': id}, {'$push': {'libros': libro}} )
 
         return result
-        db.usuarios.update(
-   { _id: "'MarcyHolcomb6712" },
-   { $push: { libros: "agap" } }
-)
+      
 
     
