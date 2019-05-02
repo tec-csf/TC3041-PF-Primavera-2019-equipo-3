@@ -29,6 +29,14 @@ def root():
 @app.route('/login', methods=['GET','POST'])
 def login():
     return render_template('login.html')
+
+@app.route('/registro', methods=['GET','POST'])
+def registro():
+    return render_template('registro.html')
+
+
+
+
 @app.route('/menu', methods=['GET','POST'])
 def menu():
     libros_array = []
