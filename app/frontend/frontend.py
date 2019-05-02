@@ -37,25 +37,24 @@ def login():
 
 @app.route('/registro', methods=['POST','GET'])
 def registro():
-
+    #passwd = request.form.get("username")
+    #print("agap",passwd)
     a = api.API()
-
     if request.method == 'POST':
-      user = request.form['username']
-      password = request.form['password']
-      name = request.form['Name']
-      lastName = request.form['Lastname']
-      email = request.form['Email']
 
-      print(type(password))
+       
+        passwd = request.form.get("username")
+        print("agap",passwd)
+        user = request.form.get('username')
+        password = request.form.get('password')
+        name = request.form.get('Name')
+        lastName = request.form.get('Lastname')
+        email = request.form.get('Email')
 
       #if (password != None):
         #print("paso")
 
-        #if(a.verify_password(user,password)):
-            #return redirect("/login")
-        #else:
-             #print("mal")
+    
      
     return render_template('registro.html')
 
@@ -92,7 +91,7 @@ def menu():
 
     
     jsons = jsons.get_all_tasks()
-  
+    #print(type(jsons))
     for i in range(len(jsons)):
         autor_array.append(jsons[i]['Autor'])
         libros_array.append(jsons[i]['Libro'])
