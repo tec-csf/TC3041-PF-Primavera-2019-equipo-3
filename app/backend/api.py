@@ -6,7 +6,7 @@ from wtforms import StringField,PasswordField
 from wtforms.validators import InputRequired, Email,Length,AnyOf
 from .models import sessions
 from datetime import datetime
-from .models import libros
+from .models import libros, usuarios
 
 
 
@@ -55,4 +55,10 @@ class API(object):
         libs = mongodb.findByAuthor()  
 
         return libs
+
+    def get_all_users(self):
+        mongodb = usuarios.Usuarios()
+        users = mongodb.find()  
+
+        return users
 
