@@ -63,4 +63,14 @@ class Usuarios(object):
 
         return result
 
+    def add_book(self, id, libro):
+     
+        result = self.collection.replace_one({'_id': ObjectId(id)}, usuario )
+
+        return result
+        db.usuarios.update(
+   { _id: "'MarcyHolcomb6712" },
+   { $push: { libros: "agap" } }
+)
+
     
