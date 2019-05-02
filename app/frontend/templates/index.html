@@ -82,28 +82,18 @@ http://www.tooplate.com/view/2086-multi-color
                                 </div>
 
                                 <div>
-                                    <form method="POST" action =""name = "filtros" >
+                                    <form method="POST" >
                                         <span>Filtrar por género:</span>
                                         <select  name = "filt" id = "filt" class="fa fa-btn" onchange="this.form.submit()">
-                                            <option value="">{{genero}}</option>
                                             {%for genero in generoslimpios%}    
-                                            <option value="">{{genero}}</option>
+                                                <option value="{{genero}}">{{genero}}</option>
                                             {%endfor%}
                                         </select>
-                                        <span>Filtrar por autor:</span>
-                                        <select  name = "aut" id = "aut" class="fa fa-btn" onchange="this.form.submit()">
-                                            <option value="">{{autor}}</option>
-                                            {%for autor in autoreslimpios%}    
-                                            <option value="">{{autor}}</option>
-                                            {%endfor%}
-                                        </select>
+                                        
                                     </form>
                                 </div> 
                                  
-                                
-                                
-                                {%if filtro == 'Género'%}  
-                                {%set gen = generos[0]%}  
+                                {%set gen = filtro%}  
                                 <div>
                                     <h1>{{gen}}</h1> 
                                 </div>   
@@ -112,101 +102,32 @@ http://www.tooplate.com/view/2086-multi-color
                                 
                                     {%set gent = genero%}
 
-                                    {%if gen|string() != gent|string()%}  
-                                        {%set gen = gent%} 
-                                        <div>
-                                            <h1>{{gen,gent}}</h1> 
-                                        </div>
-                                    
+                                    {%if gen == gent%}  
+                                   
+                                    <div class="grid-item " >
+                                        <figure class="effect-bubba">
+                                                <div style="max-height: 410px;width: auto">
+                                                    <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img" />
+                                                </div>
+                                                
+                                                <figcaption>
+                                                    <p class="tm-figure-description">
+                                                        Autor : {{autor}}<br>
+                                                        Género : {{genero}}<br>
+                                                        Fecha de publicación :<br> {{fecha}}<br>
+                                                        Número de páginas : {{num_pagina}}<br>
+                                                        Editorial : {{editorial}}<br>
+                                                        Pais : {{pais}}<br>
+                                                    </p>  
+                                                </figcaption>    
+                                                    
+                                            </figure>
+                                            <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                    </div>
                                     {%endif%}
-                                <div class="grid-item " >
-                                    <figure class="effect-bubba">
-                                            <div style="max-height: 410px;width: auto">
-                                                <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
-                                            </div>
-                                            
-                                            <figcaption>
-                                                <p class="tm-figure-description">
-                                                    Autor : {{autor}}<br>
-                                                    Género : {{genero}}<br>
-                                                    Fecha de publicación :<br> {{fecha}}<br>
-                                                    Número de páginas : {{num_pagina}}<br>
-                                                    Editorial : {{editorial}}<br>
-                                                    Pais : {{pais}}<br>
-                                                </p>  
-                                            </figcaption>    
-                                                
-                                        </figure>
-                                        <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                </div>
-                                
                                 {%endfor%}
                                 
 
-
-                                {%elif filtro == 'Autor'%}  
-                                {%set aut = autores[0]%} 
-                                {%set temporal = aut%}    
-                                <h1>{{aut}}</h1>           
-                                {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                    zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
-                                    {%set temporal = autor%}
-                                    {%if aut != temporal%}  
-                                        {%set aut = temporal%} 
-                                            <h1>{{aut}}</h1>
-                                    {%endif%}
-                                <div class="grid-item " >
-                                    <figure class="effect-bubba">
-                                            <div style="max-height: 410px;width: auto">
-                                                <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
-                                            </div>
-                                            
-                                            <figcaption>
-                                                <p class="tm-figure-description">
-                                                    Autor : {{autor}}<br>
-                                                    Género : {{genero}}<br>
-                                                    Fecha de publicación :<br> {{fecha}}<br>
-                                                    Número de páginas : {{num_pagina}}<br>
-                                                    Editorial : {{editorial}}<br>
-                                                    Pais : {{pais}}<br>
-                                                </p>  
-                                            </figcaption>    
-                                                
-                                        </figure>
-                                        <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                </div>
-                                
-                                {%endfor%}
-
-                                {%else%}  
-                                    
-                                {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                    zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
-                                    
-                                <div class="grid-item " >
-                                    <figure class="effect-bubba">
-                                            <div style="max-height: 410px;width: auto">
-                                                <img src="{{imagen}}"  alt="Image" class="img-fluid tm-img imagen_libro" />
-                                            </div>
-                                            
-                                            <figcaption>
-                                                <p class="tm-figure-description">
-                                                    Autor : {{autor}}<br>
-                                                    Género : {{genero}}<br>
-                                                    Fecha de publicación :<br> {{fecha}}<br>
-                                                    Número de páginas : {{num_pagina}}<br>
-                                                    Editorial : {{editorial}}<br>
-                                                    Pais : {{pais}}<br>
-                                                </p>  
-                                            </figcaption>    
-                                                
-                                        </figure>
-                                        <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                </div>
-                                
-                                {%endfor%}
-
-                                {%endif%}
                             </div>                                 
                         </div>
                     </div>                                                    
@@ -437,44 +358,6 @@ http://www.tooplate.com/view/2086-multi-color
                        
         });
 
-        /* Google map
-        ------------------------------------------------*/
-        var map = '';
-        var center;
-
-        function initialize() {
-            var mapOptions = {
-                zoom: 14,
-                center: new google.maps.LatLng(37.769725, -122.462154),
-                scrollwheel: false
-            };
-        
-            map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
-
-            google.maps.event.addDomListener(map, 'idle', function() {
-              calculateCenter();
-            });
-        
-            google.maps.event.addDomListener(window, 'resize', function() {
-              map.setCenter(center);
-            });
-        }
-
-        function calculateCenter() {
-            center = map.getCenter();
-        }
-
-        function loadGoogleMap(){
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
-            document.body.appendChild(script);
-        }
-    
-        // DOM is ready
-        $(function() {                
-            loadGoogleMap(); // Google Map
-        });
         function agap(num){
             alert("Hola amigo");
             console.log("Hello world!"+num);
