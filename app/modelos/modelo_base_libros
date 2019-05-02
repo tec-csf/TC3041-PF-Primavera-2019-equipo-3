@@ -41,11 +41,11 @@
 [
     '{{repeat(50)}}',
 {
-  "_id":"'{{firstName()}}{{surname()}}{{integer(0,10000)}}",
+  "_id":"{{firstName()}}{{surname()}}{{integer(0,10000)}}",
     "Nombre":"{{firstName()}}",
     "Apellido":"{{surname()}}",
     "Correo":"{{firstName()}}{{surname()}}@gmail.com'",
-    "libros":["ObjectId("5cc9b7c4767d7cf5dbb69811"),ObjectId("5cc9b7c4767d7cf5dbb6980b"),ObjectId(""5cc9b7c4767d7cf5dbb69807")]
+    "libros":["ObjectId(5cc9b7c4767d7cf5dbb69811)","ObjectId(5cc9b7c4767d7cf5dbb6980b)","ObjectId(5cc9b7c4767d7cf5dbb69807)"]
 }
   
   
