@@ -35,22 +35,23 @@ def login():
         return redirect(url_for('registro', x=x, y=y))
     return render_template('login.html')
 
-@app.route('/registro', methods=['GET','POST'])
+@app.route('/registro', methods=['POST','GET'])
 def registro():
 
-    if request.method == 'GET':
+    a = api.API()
 
-        a = api.API()
-        user = request.args.get('username')
-        password = request.args.get('password')
-        name = request.args.get('Name')
-        lastName = request.args.get('Lastname')
-        email = request.args.get('Email')
+    if request.method == 'POST':
+      user = request.form['username']
+      password = request.form['password']
+      name = request.form['Name']
+      lastName = request.form['Lastname']
+      email = request.form['Email']
 
-        print(type(password))
+      print(type(password))
 
-    if (password != None):
-        print("paso")
+      #if (password != None):
+        #print("paso")
+
         #if(a.verify_password(user,password)):
             #return redirect("/login")
         #else:
