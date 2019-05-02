@@ -43,7 +43,9 @@ def menu():
         framework = request.form.get('framework')
         
     jsons = api.API()
-    filtro = request.form.get("nm")
+    usuarios_array = jsons.get_all_users()
+
+    filtro = request.form.get("filt")
     print("browser",filtro)
     if filtro == 'Género':
         jsons = jsons.get_all_tasks_by_genre()
@@ -65,7 +67,15 @@ def menu():
         editorial_array.append(jsons[i]['Editorial'])
         pais_array.append(jsons[i]['Pais'])
     
-    
+    generos_limpios = []
+    autores_limpios = []
+    for genero in genero_array:
+        if genero not in generos_limpios:
+            generos_limpios.append(genero)
+    for autor in autor_array:
+        if autor not in autores_limpios:
+            autores_limpios.append(autor)
+    print(autores_limpios)
     
     #print(images_array)
    
@@ -73,7 +83,8 @@ def menu():
                             imagenes=imagenes_array, generos=genero_array,
                             fechas=fecha_de_publicacion_array,descripciones=descripcion_array,
                             num_paginas=num_paginas_array,editoriales = editorial_array,
-                            paises=pais_array,filtro = filtro)
+                            paises=pais_array,filtro = filtro,usuarios=usuarios_array,
+                            generoslimpios=generos_limpios,autoreslimpios=autores_limpios)
 
 
 

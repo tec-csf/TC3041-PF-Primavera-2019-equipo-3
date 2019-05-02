@@ -80,19 +80,27 @@ http://www.tooplate.com/view/2086-multi-color
                                     <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Librería</span></h2>
                                     <p class="tm-text">Los mejores libros del mundo.</p>
                                 </div>
-                                <div>
-                                    <form method="POST">
-                                        <span>Filtrar por:</span>
-                                            <input list="filtrar" name ="nm" >
 
-                                            <datalist id="filtrar">
-                                            <option value="Género">
-                                            <option value="Autor">
-                                            </datalist>
-                                            <input type="submit">
-                                        
+                                <div>
+                                    <form method="POST" action =""name = "filtros" >
+                                        <span>Filtrar por género:</span>
+                                        <select  name = "filt" id = "filt" class="fa fa-btn" onchange="this.form.submit()">
+                                            <option value="">{{genero}}</option>
+                                            {%for genero in generoslimpios%}    
+                                            <option value="">{{genero}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <span>Filtrar por autor:</span>
+                                        <select  name = "aut" id = "aut" class="fa fa-btn" onchange="this.form.submit()">
+                                            <option value="">{{autor}}</option>
+                                            {%for autor in autoreslimpios%}    
+                                            <option value="">{{autor}}</option>
+                                            {%endfor%}
+                                        </select>
                                     </form>
-                                </div>  
+                                </div> 
+                                 
+                                
                                 
                                 {%if filtro == 'Género'%}  
                                 {%set gen = generos[0]%}  
@@ -266,17 +274,20 @@ http://www.tooplate.com/view/2086-multi-color
                                                 <form action="menu" method="post" class="tm-contact-form">
 
                                                     <div class="form-group">
-                                                        <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Nombre"  required/>
+                                                        Nombre: <span type="text" id="contact_name" name="contact_name" >"{{usuarios[0]['Nombre']}}"</span>
                                                     </div>
-                                                    <div class="form-group">                                                        
-                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Edad"  required/>
+                                                    <div class="form-group"> 
+                                                        Apellido:                                                       
+                                                        <span type="email" id="contact_email" name="contact_email"  >"{{usuarios[0]['Apellido']}}"</span>
                                                     </div>  
-                                                    <div class="form-group">                                                        
-                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Nacionalidad"  required/>
+                                                    <div class="form-group">  
+                                                        Correo:                                                      
+                                                        <span type="email" id="contact_email" name="contact_email"  >"{{usuarios[0]['Correo']}}"</span>
                                                     </div>  
                                         
-                                                    <div class="form-group">                                                        
-                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Correo"  required/>
+                                                    <div class="form-group">  
+                                                        Contraseña:                                                      
+                                                        <input type="password" id="contact_email" name="contact_email" class="form-control" required/>
                                                     </div>                                                        
                                                     
 
