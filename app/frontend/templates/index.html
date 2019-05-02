@@ -201,11 +201,12 @@ http://www.tooplate.com/view/2086-multi-color
                                                 </figcaption>    
                                                     
                                             </figure>
-                                            <p>{{libro}}</p>
+                                            <input id = "book{{loop.index}}" value = "{{libro}}" >
 
                                             
                                             <button type="button" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                    </div>
+                                                </span> 
+                                        </div>
                                     
                                     {%endfor%}
                                 </div>                                 
@@ -300,7 +301,18 @@ http://www.tooplate.com/view/2086-multi-color
     <script src="static/js/hero-slider-main.js"></script>          <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
     <script src="static/js/jquery.magnific-popup.min.js"></script> <!-- Magnific popup (http://dimsemenov.com/plugins/magnific-popup/) -->
     
-    <script>
+    <script >
+        
+        function agap(){    
+            //var lib = {{libro}};  
+            //const url=document.getElementById("book"+i).value;  
+            //var url = $('#my_playlist_data').data("playlist");
+            console.log("Hello world!"+lib);
+            var uri = "http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf";
+            //window.location = url;
+            //window.open(url);
+
+        }
 
         function adjustHeightOfPage(pageNo) {
 
@@ -393,18 +405,7 @@ http://www.tooplate.com/view/2086-multi-color
                        
         });
         //var playlist_data = $('#my_playlist_data').data("playlist");
-
-        function agap(){
-            //var url = $('#my_playlist_data').data("playlist");
-            //var url = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data-js-vars') || '{}');  
-            var url = "{{libro}}"
-            //var url = $('#my_playlist_data').data("playlist");
-            console.log("Hello world!"+url);
-            var uri = "http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf";
-            //window.location = url;
-            window.open(url);
-
-        }
+        
     
         
 

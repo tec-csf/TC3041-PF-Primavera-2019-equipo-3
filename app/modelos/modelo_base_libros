@@ -45,7 +45,7 @@
     "Nombre":"{{firstName()}}",
     "Apellido":"{{surname()}}",
     "Correo":"{{firstName()}}{{surname()}}@gmail.com'",
-    "libros":["5cc9b7c4767d7cf5dbb69811","5cc9b7c4767d7cf5dbb6980b","5cc9b7c4767d7cf5dbb69807"]
+    "libros":["ObjectId("5cc9b7c4767d7cf5dbb69811"),ObjectId("5cc9b7c4767d7cf5dbb6980b"),ObjectId(""5cc9b7c4767d7cf5dbb69807")]
 }
   
   

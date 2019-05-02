@@ -29,10 +29,9 @@ def root():
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        x = request.form["x"]
-        y = request.form["y"]
         
-        return redirect(url_for('registro', x=x, y=y))
+        
+        return redirect(url_for('menu'))
     return render_template('login.html')
 
 @app.route('/registro', methods=['POST','GET'])
