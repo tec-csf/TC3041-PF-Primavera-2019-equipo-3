@@ -76,8 +76,18 @@ def menu():
     jsons = api.API()
     usuarios_array = jsons.get_all_users()
 
-    filtro = request.form.get("filt")
-    print("browser",filtro)
+    
+    if request.form.get("filt"):
+        filtro = request.form.get("filt")
+        bandera = 1
+    elif request.form.get("aut"):
+        filtro = request.form.get("aut")
+        bandera = 2
+    else:
+        bandera = 0
+        filtro = 'None'
+    bandera = str(bandera)
+    print("browser",filtro,bandera)
 
     
     jsons = jsons.get_all_tasks()
@@ -94,7 +104,15 @@ def menu():
         editorial_array.append(jsons[i]['Editorial'])
         pais_array.append(jsons[i]['Pais'])
     
-  
+    generos_limpios = []
+    autores_limpios = []
+    for genero in genero_array:
+        if genero not in generos_limpios:
+            generos_limpios.append(genero)
+    for autor in autor_array:
+        if autor not in autores_limpios:
+            autores_limpios.append(autor)
+    print(autores_limpios)
     
     #print(images_array)
    
@@ -102,7 +120,8 @@ def menu():
                             imagenes=imagenes_array, generos=genero_array,
                             fechas=fecha_de_publicacion_array,descripciones=descripcion_array,
                             num_paginas=num_paginas_array,editoriales = editorial_array,
-                            paises=pais_array,filtro = filtro,usuarios=usuarios_array)
+                            paises=pais_array,filtro = filtro,usuarios=usuarios_array,
+                            generoslimpios=generos_limpios,autoreslimpios=autores_limpios,bandera=bandera)
 
 
 
