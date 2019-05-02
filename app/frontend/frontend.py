@@ -26,7 +26,7 @@ def root():
 
     return jsonify(result)
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['POST','GET'])
 def login():
 
     a = api.API()
@@ -35,11 +35,12 @@ def login():
         print("agap",user)
         password = request.form.get('password')
         print("agap",password)
+ 
 
-        if(a.verify_password(user,password)):
-             print("correcto")
-        else:
-            print("incorrecto")
+        #if(a.verify_password(user,password)):
+             #print("correcto")
+        #else:
+            #print("incorrecto")
 
 
     
