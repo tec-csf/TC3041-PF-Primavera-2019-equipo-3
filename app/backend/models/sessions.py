@@ -1,4 +1,5 @@
 import redis
+import hashlib, uuid
 from backend import config
 
 class Sessions(object):
@@ -14,17 +15,19 @@ class Sessions(object):
                 host= config.REDIS_HOST,
                 port=config.REDIS_PORT)
 
+    def hashed_pass(password):
 
-    def get_active_sessions(self):
-        """ Regresa las sesiones activas en Redis """
+        hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 
-        size = self.instance.dbsize()
+        return hashed_password
+    
+    def set_user(self,user,password):
 
-        return size
+        self.instance.hset(user,"password",Sessions.hashed_pass(password))
 
-    def add(self, id):
-        """ Crea una nueva sesion en Redis """
 
-        result = self.instance.set(id, 1)
+    def get_user_password(self,user):
 
-        return result
+        password=self.instance.hget(user,"password")
+
+        return password

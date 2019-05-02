@@ -13,9 +13,31 @@ from .models import libros
 
 class LoginForm(Form):
     username = StringField('username', validators=[InputRequired(),Email(message='Invalid email.')])
-    password = PasswordField('password', validators=[InputRequired(),Length(min=5,max=15)])
+    password = PasswordField('password', validators=[InputRequired(),Length(min=5,max=15)])    
 
 class API(object):
+
+
+    def verify_password(self,user,password):
+        redis = sessions.Sessions()
+
+        hashedPassword = redis.hashed_pass(password)
+
+        redisPassword = redis.get_user_password(user)
+        
+        if(redisPassword != None):
+            if redisPassword == hashedPassword:
+              return True
+            return False  
+        return False
+
+    def get_user_books(self,user):
+        mongodb = libros.Libros()
+
+
+
+    
+
     def get_all_tasks(self):
         mongodb = libros.Libros()
         libs = mongodb.find()  

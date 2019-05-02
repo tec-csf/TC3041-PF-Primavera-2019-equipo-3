@@ -86,3 +86,7 @@ class Libros(object):
             libros.append(libro)
 
         return libros
+
+    #def find_user_books(self):
+        #self.collection 
+
