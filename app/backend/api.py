@@ -31,6 +31,13 @@ class API(object):
             return False  
         return False
 
+    def insert_user(self,user,password,nombre,apellido,email):
+         red = sessions.Sessions()
+         mongodb = usuarios.Usuarios()
+
+         red.set_user(user,password)
+         mongodb.insert_user(user,nombre,apellido,email)   
+
     def get_user_books(self,user):
         mongodb = libros.Libros()
 
