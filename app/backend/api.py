@@ -19,11 +19,11 @@ class API(object):
 
 
     def verify_password(self,user,password):
-        redis = sessions.Sessions()
+        red = sessions.Sessions()
 
-        hashedPassword = redis.hashed_pass(password)
+        hashedPassword = red.hashed_pass(password)
 
-        redisPassword = redis.get_user_password(user)
+        redisPassword = red.get_user_password(user)
         
         if(redisPassword != None):
             if redisPassword == hashedPassword:

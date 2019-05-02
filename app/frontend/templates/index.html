@@ -201,7 +201,10 @@ http://www.tooplate.com/view/2086-multi-color
                                                 </figcaption>    
                                                     
                                             </figure>
-                                            <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                            <p>{{libro}}</p>
+
+                                            
+                                            <button type="button" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
                                     </div>
                                     
                                     {%endfor%}
@@ -389,11 +392,15 @@ http://www.tooplate.com/view/2086-multi-color
             $('body').addClass('loaded');
                        
         });
+        //var playlist_data = $('#my_playlist_data').data("playlist");
 
-        function agap(num){
-            alert("Hola amigo");
-            console.log("Hello world!"+num);
-            var url = "http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf";
+        function agap(){
+            //var url = $('#my_playlist_data').data("playlist");
+            //var url = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data-js-vars') || '{}');  
+            var url = "{{libro}}"
+            //var url = $('#my_playlist_data').data("playlist");
+            console.log("Hello world!"+url);
+            var uri = "http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf";
             //window.location = url;
             window.open(url);
 
