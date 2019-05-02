@@ -37,7 +37,19 @@ def login():
 
 @app.route('/registro', methods=['GET','POST'])
 def registro():
-    return render_template('registro.html')
+
+    if request.method == 'POST':
+      user = request.form['username']
+      print(user)
+      return render_template('registro.html')
+    else:
+       user = request.args.get('username')
+       password = request.args.get('password')
+       name = request.args.get('Name')
+       lastName = request.args.get('Lastname')
+       email = request.args.get('Email')
+       
+       return render_template('registro.html')
 
 
 
