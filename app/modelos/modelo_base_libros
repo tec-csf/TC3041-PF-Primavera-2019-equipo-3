@@ -38,10 +38,15 @@
 }
 
 //Usuario
+[
+    '{{repeat(50)}}',
 {
-    "_id":"string",
-    "Nombre":"string",
-    "Apellido":"string",
-    "Correo":"string",
+    "_id":"'{{firstName()}}{{surname()}}@gmail.com'",
+    "Nombre":"{{firstName()}}",
+    "Apellido":"{{surname()}}",
+    "Correo":_id,
     "libros":["string"]
 }
+  
+  
+  ]
