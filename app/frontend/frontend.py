@@ -26,6 +26,9 @@ def root():
 
     return jsonify(result)
 
+@app.route('/login', methods=['GET','POST'])
+def login():
+    return render_template('login.html')
 @app.route('/menu', methods=['GET','POST'])
 def menu():
     libros_array = []
@@ -38,22 +41,17 @@ def menu():
     num_paginas_array=[]
     editorial_array=[]
     pais_array=[]
-    if request.method == 'POST':
-        language = request.form.get('nm')
-        framework = request.form.get('framework')
-        
+
     jsons = api.API()
     usuarios_array = jsons.get_all_users()
 
+    
+    
     filtro = request.form.get("filt")
     print("browser",filtro)
-    if filtro == 'Género':
-        jsons = jsons.get_all_tasks_by_genre()
-    elif filtro == 'Autor':
-        jsons = jsons.get_all_tasks_by_author()
-    else:
-        jsons = jsons.get_all_tasks()
-   
+
+    
+    jsons = jsons.get_all_tasks()
   
     for i in range(len(jsons)):
         autor_array.append(jsons[i]['Autor'])
