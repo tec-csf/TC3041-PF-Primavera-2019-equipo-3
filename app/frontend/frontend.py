@@ -27,13 +27,18 @@ def root():
 
     return jsonify(result)
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['POST','GET'])
 def login():
 
     a = api.API()
     if request.method == 'POST':
         user = request.form.get('username')
         password = request.form.get('pass')
+<<<<<<< HEAD
+=======
+        print("agap",password)
+ 
+>>>>>>> 8b75fbe6ef4c277047fee89e200bada25fdbcc2f
 
         if(a.verify_password(user,password)):
              session['user'] = user
