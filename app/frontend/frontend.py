@@ -40,13 +40,7 @@ def login():
         user = request.form.get('username')
     
         password = request.form.get('pass')
-<<<<<<< HEAD
-        print("agap",password)
- 
-
-=======
        
->>>>>>> c878d1e65e604d50a7fd4ae0145ceab688f25301
         if(a.verify_password(user,password)):
              session['user'] = user
              return redirect(url_for('menu'))
