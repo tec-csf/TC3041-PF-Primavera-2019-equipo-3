@@ -179,10 +179,10 @@ http://www.tooplate.com/view/2086-multi-color
                                     </div>
                                     
                                     
-
-                                    {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                        zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
-                                    
+                                    {%for libro_usuario in libros_usuario%}
+                                    {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais,id in autores|
+                                        zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises,idlibros)%}
+                                        {%if libro_usuario == id%}
                                     <div class="grid-item " >
                                         <figure class="effect-bubba">
                                                 <div style="max-height: 410px;width: auto">
@@ -207,8 +207,11 @@ http://www.tooplate.com/view/2086-multi-color
                                             <button type="button" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
                                                 </span> 
                                         </div>
+                                        {%endif%}
                                     
                                     {%endfor%}
+                                    {%endfor%}
+                                    
                                 </div>                                 
                             </div>
                         </div>                                                    
