@@ -143,8 +143,9 @@ def menu():
     #print(images_array)
 
     if request.method == 'POST':
+        a = api.API()
         password = request.form.get('password')
-        jsons.update_user()
+        a.update_user(user,password)
         
 
 
