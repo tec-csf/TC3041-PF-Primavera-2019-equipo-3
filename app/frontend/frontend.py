@@ -36,19 +36,23 @@ def login():
 
     a = api.API()
     if request.method == 'POST':
+
         user = request.form.get('username')
+    
         password = request.form.get('pass')
+<<<<<<< HEAD
         print("agap",password)
  
 
+=======
+       
+>>>>>>> c878d1e65e604d50a7fd4ae0145ceab688f25301
         if(a.verify_password(user,password)):
              session['user'] = user
              return redirect(url_for('menu'))
         else:
             print("incorrecto")
 
-
-    
     return render_template('login.html')
 
 @app.route('/registro', methods=['POST','GET'])
@@ -68,13 +72,10 @@ def registro():
         email = request.form.get('Email')
         print("agap",email)
 
-        if(len(user)>0 and len(password)>0 and len(name)>0 and len(lastName)>0 and len(email)>0):
-           a.insert_user(user,password,name,lastName,email)
-           print("lleno")
-        else:
-           print("no lleno") 
-    
-     
+        a.insert_user(user,password,name,lastName,email)
+
+        return redirect(url_for('login'))
+
     return render_template('registro.html')
 
 
@@ -152,6 +153,14 @@ def menu():
     #print(autores_limpios)
     
     #print(images_array)
+
+    if request.method == 'POST':
+        password = request.form.get('password')
+        jsons.update_user()
+        
+
+
+    
    
     return render_template('index.html',autores= autor_array, libros=libros_array,titulos=titulos_array,
                             imagenes=imagenes_array, generos=genero_array,

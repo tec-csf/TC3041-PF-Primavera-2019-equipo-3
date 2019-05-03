@@ -17,6 +17,11 @@ class LoginForm(Form):
 
 class API(object):
 
+    def update_user(self,user,password):
+        red = sessions.Sessions()
+        red.set_user(user,password)
+
+
 
     def verify_password(self,user,password):
         red = sessions.Sessions()
@@ -35,8 +40,8 @@ class API(object):
          red = sessions.Sessions()
          mongodb = usuarios.Usuarios()
 
-         red.set_user(user,password)
-         mongodb.insert_user(user,nombre,apellido,email)   
+         #red.set_user(user,password)
+         #mongodb.insert_user(user,nombre,apellido,email)   
 
   
 
