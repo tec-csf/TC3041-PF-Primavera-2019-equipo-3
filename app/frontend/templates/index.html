@@ -104,8 +104,8 @@ http://www.tooplate.com/view/2086-multi-color
                                         <div>
                                             <h1>{{gen}}</h1>
                                         </div>
-                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais,id in autores|
+                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises,idlibros)%}
                                             {%if bandera == '1'%}
                                                 {%set eleccion = genero%}
                                                 
@@ -131,13 +131,15 @@ http://www.tooplate.com/view/2086-multi-color
                                                         </figcaption>    
                                                             
                                                     </figure>
-                                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                            </div>
+                                                    <form action="" method="POST">
+                                                            <button type="submit" name ="anadir" value="{{id}}" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                                    </form>
+                                                    </div>
                                             {%endif%}
                                         {%endfor%}
                                     {%else%}
-                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais in autores|
-                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises)%}
+                                        {%for autor,libro,titulo,imagen,genero,fecha,descripcion,num_pagina,editorial,pais,id in autores|
+                                            zip(libros,titulos,imagenes,generos,fechas,descripciones,num_paginas,editoriales,paises,idlibros)%}
                                             <div class="grid-item " >
                                                 <figure class="effect-bubba">
                                                         <div style="max-height: 410px;width: auto">
@@ -156,8 +158,10 @@ http://www.tooplate.com/view/2086-multi-color
                                                         </figcaption>    
                                                             
                                                     </figure>
-                                                    <button type="button" onclick="agap(0)"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
-                                            </div>
+                                                    <form action=""method="POST">
+                                                            <button name ="anadir" value="{{id}}" type="submit" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
+                                                    </form>
+                                                    </div>
                                         {%endfor%}
                                     {%endif%}                                    
                                 </div>                                 
@@ -201,9 +205,6 @@ http://www.tooplate.com/view/2086-multi-color
                                                 </figcaption>    
                                                     
                                             </figure>
-                                            <input id = "book{{loop.index}}" value = "{{libro}}" >
-
-                                            
                                             <button type="button" onclick="agap()"; class="btn btn-danger" style="font-size:10px;"><i class="fa fa-book fa-3x" aria-hidden="true"></i>Read</button>    
                                                 </span> 
                                         </div>
@@ -234,15 +235,15 @@ http://www.tooplate.com/view/2086-multi-color
                                                 <form action="menu" method="post" class="tm-contact-form">
 
                                                     <div class="form-group">
-                                                        Nombre: <span type="text" id="contact_name" name="contact_name" >"{{usuarios[0]['Nombre']}}"</span>
+                                                        Nombre: <span type="text" id="contact_name" name="contact_name" >"{{datosUsuario['Nombre']}}"</span>
                                                     </div>
                                                     <div class="form-group"> 
                                                         Apellido:                                                       
-                                                        <span type="email" id="contact_email" name="contact_email"  >"{{usuarios[0]['Apellido']}}"</span>
+                                                        <span type="email" id="contact_email" name="contact_email"  >"{{datosUsuario['Apellido']}}"</span>
                                                     </div>  
                                                     <div class="form-group">  
                                                         Correo:                                                      
-                                                        <span type="email" id="contact_email" name="contact_email"  >"{{usuarios[0]['Correo']}}"</span>
+                                                        <span type="email" id="contact_email" name="contact_email"  >"{{datosUsuario['Correo']}}"</span>
                                                     </div>  
                                         
                                                     <div class="form-group">  
@@ -310,10 +311,10 @@ http://www.tooplate.com/view/2086-multi-color
             //var lib = {{libro}};  
             //const url=document.getElementById("book"+i).value;  
             //var url = $('#my_playlist_data').data("playlist");
-            console.log("Hello world!"+lib);
+            console.log("Hello world!");
             var uri = "http://www.bcnbib.gov.ar/uploads/posts/El-Aleph.pdf";
             //window.location = url;
-            //window.open(url);
+            window.open(uri);
 
         }
 
