@@ -75,4 +75,8 @@ class API(object):
         libs = mongodb.findOne(user)
         return libs
 
+    def send_book(self,id,libro):
+        mongodb = usuarios.Usuarios()
+        mongodb.add_book(id,libro)
+
 

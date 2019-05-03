@@ -27,6 +27,10 @@ def root():
 
     return jsonify(result)
 
+@app.route('/test', methods=['POST','GET'])
+def test():
+    return "Api working"
+
 @app.route('/login', methods=['POST','GET'])
 def login():
 
@@ -36,7 +40,13 @@ def login():
         user = request.form.get('username')
     
         password = request.form.get('pass')
+<<<<<<< HEAD
+        print("agap",password)
+ 
+
+=======
        
+>>>>>>> c878d1e65e604d50a7fd4ae0145ceab688f25301
         if(a.verify_password(user,password)):
              session['user'] = user
              return redirect(url_for('menu'))
@@ -113,7 +123,9 @@ def menu():
     bandera = str(bandera)
     #print("browser",filtro,bandera)
 
-    
+    anadir = request.form.get("anadir")
+    print("añadir",anadir)
+    jsons.send_book(user,anadir)
     jsons = jsons.get_all_tasks()
     #print(type(jsons))
     for i in range(len(jsons)):
@@ -157,7 +169,7 @@ def menu():
                             num_paginas=num_paginas_array,editoriales = editorial_array,
                             paises=pais_array,filtro = filtro,usuarios=usuarios_array,
                             generoslimpios=generos_limpios,autoreslimpios=autores_limpios,bandera=bandera,idlibros = ids_libros_array,
-                            libros_usuario = libros_usuario)
+                            libros_usuario = libros_usuario, datosUsuario = libros)
 
 
 
