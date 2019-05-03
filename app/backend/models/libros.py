@@ -13,7 +13,7 @@ class Libros(object):
 
     def find(self):
         """
-        Obtener todas las notas
+        Obtener todos los libros
         """
         cursor = self.collection.find()
 
@@ -41,7 +41,7 @@ class Libros(object):
 
     def create(self, libro):
         """
-        Insertar una nota nueva
+        Insertar un libro nuevo
         """
         result = self.collection.insert_one(libro)
 
@@ -49,7 +49,7 @@ class Libros(object):
 
     def delete(self, id):
         """
-        Eliminar una nota
+        Eliminar un libro
         """
         result = self.collection.delete_one({'_id': ObjectId(id)})
 
