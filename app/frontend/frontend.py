@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,request,make_response,redirect,url_for,render_template
 from flask_bootstrap import Bootstrap
+from flask import Flask, session
 import jinja2
 from backend import api
 import os
@@ -32,11 +33,10 @@ def login():
     a = api.API()
     if request.method == 'POST':
         user = request.form.get('username')
-        print("agap",user)
         password = request.form.get('pass')
-        print("agap",password)
 
         if(a.verify_password(user,password)):
+             session['user'] = user
              return redirect(url_for('menu'))
         else:
             print("incorrecto")
@@ -75,7 +75,11 @@ def registro():
 
 @app.route('/menu', methods=['GET','POST'])
 def menu():
+    user = session.get('user')
+    user = str(user)
+    #print(user)
     libros_array = []
+    ids_libros_array = []
     titulos_array = []
     imagenes_array =[]
     autor_array =[]
@@ -88,6 +92,16 @@ def menu():
 
     jsons = api.API()
     usuarios_array = jsons.get_all_users()
+    libros = jsons.get_user_books(user)
+    print("agap",libros)
+    libros_usuario =libros['libros']
+    """
+    if libros['libros'] == NoneType:
+        libros_usuario =[]
+    else:
+        libros_usuario = libros['libros']
+        """
+   
 
     
     if request.form.get("filt"):
@@ -100,7 +114,7 @@ def menu():
         bandera = 0
         filtro = 'None'
     bandera = str(bandera)
-    print("browser",filtro,bandera)
+    #print("browser",filtro,bandera)
 
     
     jsons = jsons.get_all_tasks()
@@ -116,7 +130,9 @@ def menu():
         num_paginas_array.append(int(jsons[i]['numPaginas']))
         editorial_array.append(jsons[i]['Editorial'])
         pais_array.append(jsons[i]['Pais'])
+        ids_libros_array.append(jsons[i]['_id'])
     
+    print()
     generos_limpios = []
     autores_limpios = []
     for genero in genero_array:
@@ -125,7 +141,7 @@ def menu():
     for autor in autor_array:
         if autor not in autores_limpios:
             autores_limpios.append(autor)
-    print(autores_limpios)
+    #print(autores_limpios)
     
     #print(images_array)
    
@@ -134,7 +150,8 @@ def menu():
                             fechas=fecha_de_publicacion_array,descripciones=descripcion_array,
                             num_paginas=num_paginas_array,editoriales = editorial_array,
                             paises=pais_array,filtro = filtro,usuarios=usuarios_array,
-                            generoslimpios=generos_limpios,autoreslimpios=autores_limpios,bandera=bandera)
+                            generoslimpios=generos_limpios,autoreslimpios=autores_limpios,bandera=bandera,idlibros = ids_libros_array,
+                            libros_usuario = libros_usuario)
 
 
 

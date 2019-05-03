@@ -35,7 +35,7 @@ class Usuarios(object):
         """
         Obtener un usuario
         """
-        usuario = self.collection.find_one({'_id': ObjectId(id)})
+        usuario = self.collection.find_one({'_id': id})
 
         # Se adicionó para poder manejar ObjectID
         if usuario is not None:

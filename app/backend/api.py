@@ -26,11 +26,7 @@ class API(object):
         redisPassword = red.get_user_password(user)
         
         if(redisPassword != None):
-            print("Romel")
-            
-
             if redisPassword.decode() == hashedPassword:
-              print(redisPassword.decode(),hashedPassword)
               return True
             return False  
         return False
@@ -42,8 +38,7 @@ class API(object):
          red.set_user(user,password)
          mongodb.insert_user(user,nombre,apellido,email)   
 
-    def get_user_books(self,user):
-        mongodb = libros.Libros()
+  
 
 
     def get_all_tasks(self):
@@ -69,4 +64,10 @@ class API(object):
         users = mongodb.find()  
 
         return users
+
+    def get_user_books(self,user):
+        mongodb = usuarios.Usuarios()
+        libs = mongodb.findOne(user)
+        return libs
+
 
