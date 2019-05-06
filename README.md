@@ -87,31 +87,35 @@ En MongoDB utilizamos los siguientes modelos:
 
 //Autores
 [
-{
-    "_id":,
-    "Nombre":,
-    "Apellido":,
-    "Fecha_Nacimiento":,
-    "Nacionalidad":,
-    "Libro_id_arreglo":[]
-}
+    {
+    
+        _id:
+        Nombre:,
+        Apellido:,
+        Fecha_Nacimiento:,
+        Nacionalidad:,
+        Libro_id_arreglo:[]
+    }
 ]
 //Editorial
 {
-    "_id":,
-    "Nombre":,
-    "libros":
+
+    _id:,
+    Nombre:,
+    libros:
 }
 
 //Usuario
 [
-    '{{repeat(50)}}',
+  
+  
 {
-  "_id":,
-    "Nombre":,
-    "Apellido":,
-    "Correo":,
-    "libros":
+
+    _id:,
+    Nombre:,
+    Apellido:,
+    Correo:,
+    libros:
 }
   
   
