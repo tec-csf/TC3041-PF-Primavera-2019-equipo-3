@@ -86,6 +86,7 @@ En MongoDB utilizamos los siguientes modelos:
   ]
 
 //Autores
+[
 {
     "_id":,
     "Nombre":,
@@ -94,7 +95,7 @@ En MongoDB utilizamos los siguientes modelos:
     "Nacionalidad":,
     "Libro_id_arreglo":[]
 }
-
+]
 //Editorial
 {
     "_id":,
