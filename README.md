@@ -89,8 +89,9 @@ En MongoDB utilizamos los siguientes modelos:
 
 Autores
 [
+
     {
-    
+   
         _id:
         Nombre:,
         Apellido:,
@@ -101,26 +102,27 @@ Autores
 ]
 
 Editorial
-{
 
-    _id:,
-    Nombre:,
-    libros:
-}
+    {
+
+        _id:,
+        Nombre:,
+        libros:
+    }
 
 
 Usuario
 [
   
   
-{
+    {
 
-    _id:,
-    Nombre:,
-    Apellido:,
-    Correo:,
-    libros:
-}
+        _id:,
+        Nombre:,
+        Apellido:,
+        Correo:,
+        libros:
+    }
   
   
   ]
