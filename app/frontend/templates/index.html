@@ -252,8 +252,8 @@ http://www.tooplate.com/view/2086-multi-color
                                                     </div>                                                        
                                                     
 
-                                                    <button type="submit" class="pull-xs-right tm-submit-btn">Send</button>
-                                                    <button type="submit" class="pull-xs-right tm-submit-btn"style = "margin:100px;">Cerrar Sesión</button>  
+                                                    <button name = "cambiar" type="submit" class="pull-xs-right tm-submit-btn">Send</button>
+                                                    <button type="button" onclick="login()" class="pull-xs-right tm-submit-btn"style = "margin:100px;">Cerrar Sesión</button>  
                                                 
                                                 </form>  
                                             </div>
@@ -316,6 +316,9 @@ http://www.tooplate.com/view/2086-multi-color
             //window.location = url;
             window.open(uri);
 
+        }
+        function login(){
+            window.location = "/";
         }
 
         function adjustHeightOfPage(pageNo) {

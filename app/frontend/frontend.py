@@ -15,7 +15,7 @@ Bootstrap(app)
 app.jinja_env.filters['zip'] = zip
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/prueba', methods=['GET','POST'])
 def root():
     jsons = api.API()
     jsons = jsons.get_all_tasks_by_genre()
@@ -31,7 +31,7 @@ def root():
 def test():
     return "Api working"
 
-@app.route('/login', methods=['POST','GET'])
+@app.route('/', methods=['POST','GET'])
 def login():
 
     a = api.API()
@@ -119,7 +119,9 @@ def menu():
 
     anadir = request.form.get("anadir")
     print("añadir",anadir)
-    jsons.send_book(user,anadir)
+    print(libros_usuario)
+    if anadir is not None and anadir not in libros_usuario:
+        jsons.send_book(user,anadir)
     jsons = jsons.get_all_tasks()
     #print(type(jsons))
     for i in range(len(jsons)):
@@ -147,11 +149,16 @@ def menu():
     #print(autores_limpios)
     
     #print(images_array)
-
-    if request.method == 'POST':
+    if request.form.get("password"):
         a = api.API()
         password = request.form.get('password')
         a.update_user(user,password)
+        
+
+    #if request.method == 'POST':
+     #   a = api.API()
+      #  password = request.form.get('password')
+       # a.update_user(user,password)
         
 
 

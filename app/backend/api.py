@@ -40,8 +40,8 @@ class API(object):
          red = sessions.Sessions()
          mongodb = usuarios.Usuarios()
 
-         #red.set_user(user,password)
-         #mongodb.insert_user(user,nombre,apellido,email)   
+         red.set_user(user,password)
+         mongodb.insert_user(user,nombre,apellido,email)   
 
   
 

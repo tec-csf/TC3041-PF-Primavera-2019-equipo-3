@@ -28,15 +28,12 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 ```
 - / 			        # Raíz de todo el proyecto
     - README.md			# Archivo con los datos del proyecto (este archivo)
+    - app
     - frontend			# Carpeta con la solución del frontend (Web app)
-    - backend			# Carpeta con la solución del backend (CMS)
-    - api			# Carpeta con la solución de la API
-    - datasets		        # Carpeta con los datasets y recursos utilizados (csv, json, audio, videos, entre otros)
-    - dbs			# Carpeta con los modelos, catálogos y scripts necesarios para generar las bases de datos
-    - models			# Carpeta donde se almacenarán los modelos de Machine Learning ya entrenados 
-    - docs			# Carpeta con la documentación del proyecto
-        - stage_f               # Documentos de la entrega final
-        - manuals               # Manuales y guías
+        - backend			# Carpeta con la solución del backend (CMS)
+        - datasets		        # Carpeta con los datasets y recursos utilizados (csv, json, audio, videos, entre otros)
+        - dbs			# Carpeta con los modelos, catálogos y scripts necesarios para generar las bases de datos
+        - modelos		           
 ```
 
 ### 1.3 Documentación  del proyecto
@@ -51,14 +48,73 @@ Como parte de la entrega final del proyecto, se debe incluir la siguiente inform
 
 ## 2. Descripción del proyecto
 
-*[Incluya aquí la descripción del proyecto seleccionado.]*
+Este proyecto consta de una plataforma de libros en línea, en dónde cada usuario puede registrarse, iniciar sesión y agregar los libros que están leyendo.
+
 
 ## 3. Solución
 
 A continuación aparecen descritos los diferentes elementos que forman parte de la solución del proyecto.
-
+Se utilizó lo siguiente:
+    -Flask
+    -MongoDB
+    -Redis
+    -Jinja2
+    -HTML,CSS y JavaScript
+Flask es un framework que permite la comunicación entre las bases de datos que estamos utilizando en la nube cómo lo son Atlas y RedisLabs.
+Jinja hace posible la interacción entre el frontend y Flask.
+HTML,CSS y JavaScript son los encargados de mostrar el frontend.
 ### 3.1 Modelos de *bases de datos* utilizados
 
+En MongoDB utilizamos los siguientes modelos:
+ //Libros
+[
+    
+    {
+     
+      Autor:,
+      Titulo:,
+      Genero: ,
+      Fecha_de_Publicacion:,
+      Descripcion:,
+      numPaginas:,
+      Editorial:,
+      Pais:,
+      Imagen:
+    }
+  
+  
+  ]
+
+//Autores
+{
+    "_id":,
+    "Nombre":,
+    "Apellido":,
+    "Fecha_Nacimiento":,
+    "Nacionalidad":,
+    "Libro_id_arreglo":[]
+}
+
+//Editorial
+{
+    "_id":,
+    "Nombre":,
+    "libros":
+}
+
+//Usuario
+[
+    '{{repeat(50)}}',
+{
+  "_id":,
+    "Nombre":,
+    "Apellido":,
+    "Correo":,
+    "libros":
+}
+  
+  
+  ]
 *[Incluya aquí una explicación del análisis realizado y la justificación de los modelos de *bases de datos* seleccionados. Incluya todo lo que considere necesario para que una persona sin conocimientos técnicos pueda entender de que trata su solución.]*
 
 ### 3.2 Arquitectura de la solución
