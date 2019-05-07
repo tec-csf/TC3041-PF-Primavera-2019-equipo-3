@@ -90,7 +90,6 @@ En MongoDB utilizamos los siguientes modelos:
 Autores
 [
 
-<<<<<<< HEAD
 {
     _id:,
     Nombre:,
@@ -110,7 +109,7 @@ Autores
 }
 
 //Usuario
-=======
+
     {
    
         _id:
@@ -133,7 +132,6 @@ Editorial
 
 
 Usuario
->>>>>>> 59bde61c1a79a8569263981a06a76393a61bdc03
 [
   
   
@@ -150,7 +148,7 @@ Usuario
   ]
 
 ### 3.2 Arquitectura de la solución
-
+![](Arquitectura.png)
 *[Incluya aquí un diagrama donde se aprecie la arquitectura de la solución propuesta, así como la interacción entre los diferentes componentes de la misma.]*
 
 ### 3.3 Frontend
