@@ -26,15 +26,13 @@
     "Nombre":"string",
     "Apellido":"string",
     "Fecha_Nacimiento":"date",
-    "Nacionalidad":"string",
-    "Libro_id_arreglo":[]
+    "Nacionalidad":"string"
 }
 
 //Editorial
 {
     "_id":"string",
-    "Nombre":"string",
-    "libros":["string"]
+    "Nombre":"string"
 }
 
 //Usuario
