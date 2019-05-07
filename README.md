@@ -220,13 +220,13 @@ Se utilizó Flask, por su sencillez.
 *[Incluya aquí una guía paso a paso para poder utilizar el proyecto, desde la clonación del repositorio hasta el despliegue de la solución en una plataforma en la nube.]*
 
 ## 4. Referencias
-[Jinja](http://jinja.pocoo.org/docs/2.10/)
-[RedisLabs](https://docs.redislabs.com/latest/index.html)
-[MongoDB](https://www.mongodb.com/)
-[Flask](http://flask.pocoo.org/docs/1.0/)
-[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)
-[Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
-[Python3](https://docs.python.org/3/)
+-[Jinja](http://jinja.pocoo.org/docs/2.10/)
+-[RedisLabs](https://docs.redislabs.com/latest/index.html)
+-[MongoDB](https://www.mongodb.com/)
+-[Flask](http://flask.pocoo.org/docs/1.0/)
+-[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)
+-[Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
+-[Python3](https://docs.python.org/3/)
 
 
 
