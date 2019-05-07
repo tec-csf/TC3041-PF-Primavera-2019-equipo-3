@@ -1,6 +1,6 @@
 # TC3041 Proyecto  Final Primavera 2019
 
-#*Aleph*
+# *Aleph*
 ---
 
 ##### Integrantes:
@@ -66,7 +66,8 @@ HTML,CSS y JavaScript son los encargados de mostrar el frontend.
 ### 3.1 Modelos de *bases de datos* utilizados
 
 En MongoDB utilizamos los siguientes modelos:
- //Libros
+ 
+ Libros
 [
     
     {
@@ -85,9 +86,11 @@ En MongoDB utilizamos los siguientes modelos:
   
   ]
 
-//Autores
+
+Autores
 [
 
+<<<<<<< HEAD
 {
     _id:,
     Nombre:,
@@ -107,19 +110,44 @@ En MongoDB utilizamos los siguientes modelos:
 }
 
 //Usuario
+=======
+    {
+   
+        _id:
+        Nombre:,
+        Apellido:,
+        Fecha_Nacimiento:,
+        Nacionalidad:,
+        Libro_id_arreglo:[]
+    }
+]
+
+Editorial
+
+    {
+
+        _id:,
+        Nombre:,
+        libros:
+    }
+
+
+Usuario
+>>>>>>> 59bde61c1a79a8569263981a06a76393a61bdc03
 [
-    '{{repeat(50)}}',
-{
-  "_id":,
-    "Nombre":,
-    "Apellido":,
-    "Correo":,
-    "libros":
-}
+  
+  
+    {
+
+        _id:,
+        Nombre:,
+        Apellido:,
+        Correo:,
+        libros:
+    }
   
   
   ]
-*[Incluya aquí una explicación del análisis realizado y la justificación de los modelos de *bases de datos* seleccionados. Incluya todo lo que considere necesario para que una persona sin conocimientos técnicos pueda entender de que trata su solución.]*
 
 ### 3.2 Arquitectura de la solución
 
