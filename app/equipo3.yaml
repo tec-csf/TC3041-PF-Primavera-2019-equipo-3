@@ -1,18 +1,18 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: frontend-service
+  name: aleph
   labels:
-    name: frontend-service
+    name: aleph
 spec:
   ports:
   - name: http
     port: 80
-    targetPort: 4200
+    targetPort: 5000
     protocol: TCP
   selector:
     name: frontend-app
-  type: LoadBalancer
+  type: LoadBalancerapp
         
 ---
 
@@ -33,13 +33,10 @@ spec:
         name: frontend-app
     spec:
       containers:
-      - name: frontend
-        image: frontend-image
+      - name: frontend-image
+        image: forntend-image
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 4200
-      - name: backend
-        image: backend-image
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3000
+        - containerPort: 5000
+      
+  

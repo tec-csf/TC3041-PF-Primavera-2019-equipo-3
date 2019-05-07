@@ -123,7 +123,8 @@ def menu():
     if anadir is not None and anadir not in libros_usuario:
         jsons.send_book(user,anadir)
     jsons = jsons.get_all_tasks()
-    #print(type(jsons))
+
+    print(type(jsons[0]))
     for i in range(len(jsons)):
         autor_array.append(jsons[i]['Autor'])
         libros_array.append(jsons[i]['Libro'])
