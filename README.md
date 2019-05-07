@@ -49,6 +49,7 @@ Como parte de la entrega final del proyecto, se debe incluir la siguiente inform
 ## 2. Descripción del proyecto
 
 Este proyecto consta de una plataforma de libros en línea, en dónde cada usuario puede registrarse, iniciar sesión y agregar los libros que están leyendo.
+El usuario tiene la seguridad de que su contraseña será hasheada para que nadie pueda verla, igualmente, la aplicación asegura que solo hay un nombre de usuario para cada cliente.
 
 
 ## 3. Solución
@@ -90,14 +91,14 @@ En MongoDB utilizamos los siguientes modelos:
 Autores
 [
 
-{
-    _id:,
-    Nombre:,
-    Apellido:,
-    Fecha_Nacimiento:,
-    Nacionalidad:,
-    Libro_id_arreglo:[]
-}
+    {
+        _id:,
+        Nombre:,
+        Apellido:,
+        Fecha_Nacimiento:,
+        Nacionalidad:,
+        Libro_id_arreglo:[]
+    }
  
 
 ]
@@ -146,51 +147,97 @@ Usuario
   
   
   ]
+  En Redis utilizamos el siguiente modelo:
+  
+        {
+         "usuario":
+         "password": 
+        }
 
 ### 3.2 Arquitectura de la solución
 ![](Arquitectura.png)
-*[Incluya aquí un diagrama donde se aprecie la arquitectura de la solución propuesta, así como la interacción entre los diferentes componentes de la misma.]*
 
 ### 3.3 Frontend
+Para la creación del Frontend, se utilizó Jinja, HTML, CSS y Javascript, así cómo su respectiva conexión a la base dde datos por medio de flask. 
+HTML, CSS y Javascript funcionan completamente para la interacción visual que puede obtener el usuario, Flask y Jinja hacen posible que los datos que se encuentran en MongoDB y Redis sean desplegados en la aplicación.
+Para mayor información sobre la interacción de los componentes mencionados anteriormente, favor de revisar la sección de Referencias.
 
-*[Incluya aquí una explicación de la solución utilizada para el frontend del proyecto. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
 
 #### 3.3.1 Lenguaje de programación
+Los lenguajes que se utilizaron fueron:
+    -Python, por Flask.
+    -JavaScript,HTML y CSS para lo visual de la aplicaión.
 #### 3.3.2 Framework
+Se utilizó Flask que es un  framework minimalista escrito en Python que con el motor de templates Jinja2, es muy sencillo la creación de aplicaciones web.
 #### 3.3.3 Librerías de funciones o dependencias
+Las siguientes librerías se utilizaron para la creación de la aplicación:
 
+    -Flask
+    -Flask-bootstrap
+    -Jinja2
+    
+    
 ### 3.4 Backend
-
-*[Incluya aquí una explicación de la solución utilizada para el backend del proyecto. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
+Para la creación del Backend, se utilizó flask y algunas librerías que permiten la conexión con las bases de datos de redis y mongoDB. 
 
 #### 3.4.1 Lenguaje de programación
+Python, por Flask.
 #### 3.4.2 Framework
+Al igual que con el frontend, se utilizó Flask, por su facilidad en la conexión con las bases de datos y la flexibidad que tiene para las consultas con ambas.
 #### 3.4.3 Librerías de funciones o dependencias
+    -Python-dotenv
+    -Flask-API
+    -Flask_wtf
+    -Pymongo
+    -Redis
 
 ### 3.5 API
-
-*[Incluya aquí una explicación de la solución utilizada para implementar la API del proyecto. No olvide incluir las ligas o referencias donde se puede encontrar información de los lenguajes de programación, frameworks y librerías utilizadas.]*
+La API es la conexión entre el backend y el frontend, para que siga existiendo correlación en el proyecto, de igual manera, se utilizó Flask.
 
 #### 3.5.1 Lenguaje de programación
+Python, por FLask.
 #### 3.5.2 Framework
+Se utilizó Flask, por su sencillez.
 #### 3.5.3 Librerías de funciones o dependencias
-
-*[Incluya aquí una explicación de cada uno de los endpoints que forman parte de la API. Cada endpoint debe estar correctamente documentado.]*
-
-*[Por cada endpoint debe incluir lo siguiente:]*
-
-* **Descripción**:
-* **URL**:
-* **Verbos HTTP**:
-* **Headers**:
-* **Formato JSON del cuerpo de la solicitud**: 
-* **Formato JSON de la respuesta**:
+   -Python-dotenv
+    -Flask-API
+    -Flask_wtf
+    -Pymongo
+    -Redis
+    -Flask
+    -Flask-bootstrap
+    -Jinja2
+    
 
 
 ## 3.6 Pasos a seguir para utilizar el proyecto
+### Pre-requisitos
+* Tener instalado `docker`. Mas información se encuentra disponible en [Docker](https://www.docker.com/community-edition).
+* Acceso a Internet.
+* Clonar este repositorio.
+* Tener instalado Python3.
+### Ejecución local en docker
+1. Clonar el repositorio de GitHub:
+
+`git clone https://github.com/tec-csf/TC3041-PF-Primavera-2019-equipo-3.git`
+
+2. Cambiarse a la carpeta de app y compilar la imagen personalizada de la aplicación:
+`cd app/`
+`docker build -t app  .`
+
+3. Verifique que la imagen fue creada correctamente con el siguiente comando:
+
+`docker images | grep app`
+
+4. Iniciar el contenedor:
+
+`sudo docker run --name aleph -p 5000:5000 app`
+
+5. Acceder al [http://localhost:5000](http://localhost:5000)
 
 *[Incluya aquí una guía paso a paso para poder utilizar el proyecto, desde la clonación del repositorio hasta el despliegue de la solución en una plataforma en la nube.]*
 
 ## 4. Referencias
+[Jinja](http://jinja.pocoo.org/docs/2.10/)
 
-*[Incluya aquí las referencias a sitios de interés, datasets y cualquier otra información que haya utilizado para realizar el proyecto y que le puedan ser de utilidad a otras personas que quieran usarlo como referencia]*
+
