@@ -217,8 +217,6 @@ Se utilizó Flask, por su sencillez.
 
 5. Acceder al [http://localhost:5000](http://localhost:5000)
 
-*[Incluya aquí una guía paso a paso para poder utilizar el proyecto, desde la clonación del repositorio hasta el despliegue de la solución en una plataforma en la nube.]*
-
 ## 4. Referencias
 -[Jinja](http://jinja.pocoo.org/docs/2.10/)
 
