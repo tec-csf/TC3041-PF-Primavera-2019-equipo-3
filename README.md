@@ -29,7 +29,7 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 - / 			        # Raíz de todo el proyecto
     - README.md			# Archivo con los datos del proyecto (este archivo)
     - app
-    - frontend			# Carpeta con la solución del frontend (Web app)
+        - frontend			# Carpeta con la solución del frontend (Web app)
         - backend			# Carpeta con la solución del backend (CMS)
         - datasets		        # Carpeta con los datasets y recursos utilizados (csv, json, audio, videos, entre otros)
         - dbs			# Carpeta con los modelos, catálogos y scripts necesarios para generar las bases de datos
@@ -102,14 +102,9 @@ Autores
  
 
 ]
-//Editorial
-{
-    _id:,
-    Nombre:,
-    libros:
-}
 
-//Usuario
+
+Usuario
 
     {
    
@@ -132,26 +127,12 @@ Editorial
     }
 
 
-Usuario
-[
-  
-  
-    {
-
-        _id:,
-        Nombre:,
-        Apellido:,
-        Correo:,
-        libros:
-    }
-  
-  
-  ]
   En Redis utilizamos el siguiente modelo:
   
         {
          "usuario":
          "password": 
+         "ttl":
         }
 
 ### 3.2 Arquitectura de la solución
@@ -195,7 +176,7 @@ Al igual que con el frontend, se utilizó Flask, por su facilidad en la conexió
 La API es la conexión entre el backend y el frontend, para que siga existiendo correlación en el proyecto, de igual manera, se utilizó Flask.
 
 #### 3.5.1 Lenguaje de programación
-Python, por FLask.
+Python, por Flask.
 #### 3.5.2 Framework
 Se utilizó Flask, por su sencillez.
 #### 3.5.3 Librerías de funciones o dependencias
@@ -223,6 +204,7 @@ Se utilizó Flask, por su sencillez.
 
 2. Cambiarse a la carpeta de app y compilar la imagen personalizada de la aplicación:
 `cd app/`
+
 `docker build -t app  .`
 
 3. Verifique que la imagen fue creada correctamente con el siguiente comando:
@@ -239,5 +221,13 @@ Se utilizó Flask, por su sencillez.
 
 ## 4. Referencias
 [Jinja](http://jinja.pocoo.org/docs/2.10/)
+[RedisLabs](https://docs.redislabs.com/latest/index.html)
+[MongoDB](https://www.mongodb.com/)
+[Flask](http://flask.pocoo.org/docs/1.0/)
+[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)
+[Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
+[Python3](https://docs.python.org/3/)
+
+
 
 
