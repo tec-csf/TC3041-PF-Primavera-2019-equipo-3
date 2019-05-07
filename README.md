@@ -221,11 +221,17 @@ Se utilizó Flask, por su sencillez.
 
 ## 4. Referencias
 -[Jinja](http://jinja.pocoo.org/docs/2.10/)
+
 -[RedisLabs](https://docs.redislabs.com/latest/index.html)
+
 -[MongoDB](https://www.mongodb.com/)
+
 -[Flask](http://flask.pocoo.org/docs/1.0/)
+
 -[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)
+
 -[Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
+
 -[Python3](https://docs.python.org/3/)
 
 
