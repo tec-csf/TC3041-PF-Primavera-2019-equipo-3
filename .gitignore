@@ -4,3 +4,4 @@
 *.pyc
 app/backend/__pycache__/api.cpython-37.pyc
 app/frontend/__pycache__/frontend.cpython-37.pyc
+__pycache__
