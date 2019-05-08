@@ -43,7 +43,7 @@ Como parte de la entrega final del proyecto, se debe incluir la siguiente inform
 * Justificación de los modelo de *bases de datos* que seleccionaron.
 * Descripción del o los *datasets* y las fuentes de información utilizadas.
 * Guía de configuración, instalación y despliegue de la solución en la plataforma en la nube  seleccionada.
-* Documentación de la API. Puede ver un ejemplo en [Swagger](https://swagger.io/). 
+* Documentación de la API. Puede ver un ejemplo en [Swagger](https://swagger.io/).
 * El código debe estar documentado siguiendo los estándares definidos para el lenguaje de programación seleccionado.
 
 ## 2. Descripción del proyecto
@@ -67,79 +67,73 @@ HTML,CSS y JavaScript son los encargados de mostrar el frontend.
 ### 3.1 Modelos de *bases de datos* utilizados
 
 En MongoDB utilizamos los siguientes modelos:
- 
- Libros
-[
-    
-    {
-     
-      Autor:,
-      Titulo:,
-      Genero: ,
-      Fecha_de_Publicacion:,
-      Descripcion:,
-      numPaginas:,
-      Editorial:,
-      Pais:,
-      Imagen:
-    }
-  
-  
-  ]
 
+Libros
+
+    {
+
+        "_id":"string",
+        "Autor":"string",
+        "Titulo":"string",
+        "Genero":"string",
+        "Fecha_de_Publicacion": "DateTime",
+        "Descripcion":"string",
+        "numPaginas":"integer",
+        "Editorial":"string",
+        "Pais":"string",
+        "Imagen":"string",
+        "Libro":"string"
+    }
 
 Autores
-[
 
     {
-        _id:,
-        Nombre:,
-        Apellido:,
-        Fecha_Nacimiento:,
-        Nacionalidad:,
-        Libro_id_arreglo:[]
-    }
- 
 
-]
+      "_id":"string",
+      "Nombre":"string",
+      "Apellido":"string",
+      "Fecha_Nacimiento":"DateTime",
+      "Nacionalidad":"string"
+
+    }
 
 
 Usuario
 
     {
-   
-        _id:
-        Nombre:,
-        Apellido:,
-        Fecha_Nacimiento:,
-        Nacionalidad:,
-        Libro_id_arreglo:[]
+
+       "_id":"string",
+       "Nombre":"string",
+       "Apellido":"string",
+       "Correo":"string",
+       "libros":["ObjectId"]
+
     }
-]
+
 
 Editorial
 
     {
 
-        _id:,
-        Nombre:,
-        libros:
+       "_id":"ObjectId",
+       "Nombre":"string"
+
     }
 
 
-  En Redis utilizamos el siguiente modelo:
-  
-        {
+En Redis utilizamos el siguiente modelo:
+
+    {
          "usuario":
-         "password": 
+         "password":
          "ttl":
-        }
+    }
 
 ### 3.2 Arquitectura de la solución
 ![](Arquitectura.png)
 
 ### 3.3 Frontend
-Para la creación del Frontend, se utilizó Jinja, HTML, CSS y Javascript, así cómo su respectiva conexión a la base dde datos por medio de flask. 
+Para la creación del Frontend, se utilizó Jinja, HTML, CSS y Javascript, así cómo su respectiva conexión a la base dde datos por medio de flask.
 HTML, CSS y Javascript funcionan completamente para la interacción visual que puede obtener el usuario, Flask y Jinja hacen posible que los datos que se encuentran en MongoDB y Redis sean desplegados en la aplicación.
 Para mayor información sobre la interacción de los componentes mencionados anteriormente, favor de revisar la sección de Referencias.
 
@@ -156,21 +150,22 @@ Las siguientes librerías se utilizaron para la creación de la aplicación:
     -Flask
     -Flask-bootstrap
     -Jinja2
-    
-    
+
+
 ### 3.4 Backend
-Para la creación del Backend, se utilizó flask y algunas librerías que permiten la conexión con las bases de datos de redis y mongoDB. 
+Para la creación del Backend, se utilizaron algunas librerías que permiten la conexión con las bases de datos de redis y mongoDB.
 
 #### 3.4.1 Lenguaje de programación
-Python, por Flask.
+Python
 #### 3.4.2 Framework
-Al igual que con el frontend, se utilizó Flask, por su facilidad en la conexión con las bases de datos y la flexibidad que tiene para las consultas con ambas.
+- MongoDB Atlas
+- Redis Labs
+
 #### 3.4.3 Librerías de funciones o dependencias
     -Python-dotenv
-    -Flask-API
-    -Flask_wtf
     -Pymongo
     -Redis
+    -Hashlib
 
 ### 3.5 API
 La API es la conexión entre el backend y el frontend, para que siga existiendo correlación en el proyecto, de igual manera, se utilizó Flask.
@@ -180,15 +175,15 @@ Python, por Flask.
 #### 3.5.2 Framework
 Se utilizó Flask, por su sencillez.
 #### 3.5.3 Librerías de funciones o dependencias
-   -Python-dotenv
-    -Flask-API
-    -Flask_wtf
-    -Pymongo
-    -Redis
-    -Flask
-    -Flask-bootstrap
-    -Jinja2
-    
+   - Python-dotenv
+   - Flask-API
+   - Flask_wtf
+   - Pymongo
+   - Redis
+   - Flask
+   - Flask-bootstrap
+   - Jinja2
+
 
 
 ## 3.6 Pasos a seguir para utilizar el proyecto
@@ -231,7 +226,3 @@ Se utilizó Flask, por su sencillez.
 -[Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
 
 -[Python3](https://docs.python.org/3/)
-
-
-
-
