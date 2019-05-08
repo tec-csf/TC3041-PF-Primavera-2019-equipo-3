@@ -56,6 +56,7 @@ El usuario tiene la seguridad de que su contraseña será hasheada para que nadi
 
 A continuación aparecen descritos los diferentes elementos que forman parte de la solución del proyecto.
 Se utilizó lo siguiente:
+
     -Flask
     -MongoDB
     -Redis
