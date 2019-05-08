@@ -147,6 +147,7 @@ Para mayor información sobre la interacción de los componentes mencionados ant
 
 #### 3.3.1 Lenguaje de programación
 Los lenguajes que se utilizaron fueron:
+    
     -Python, por Flask.
     -JavaScript,HTML y CSS para lo visual de la aplicaión.
 #### 3.3.2 Framework
